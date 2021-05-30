@@ -1,0 +1,30 @@
+{
+  "name": "InventarioJS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jfuentes4/InventarioJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jfuentes4/InventarioJS/issues"
+  },
+  "homepage": "https://github.com/Jfuentes4/InventarioJS#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
+    "babel-jest": "^27.0.1",
+    "jest": "^27.0.1"
+  },
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "jsdom": "^16.6.0"
+  }
+}

@@ -70,7 +70,7 @@ class GraphicManager {
     });
   }
 
-  _deleteContact = (deleteFunction, row, article) => {
+  /*_deleteContact = (deleteFunction, row, article) => {
 
     let rowIndex = row.rowIndex -1;
 
@@ -111,7 +111,7 @@ class GraphicManager {
       message,
       'success'
     );
-  }
+  }*/
 }
 
 export default GraphicManager;

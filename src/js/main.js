@@ -1,7 +1,11 @@
 import InventaryManager from './InventaryManager.js';
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+
 
 class Main {
   constructor () {
+    console.log(document)
     this._form = document.getElementById('newArticleForm');
     this._inventaryManager = new InventaryManager();
     document.getElementById('addArticle').addEventListener('click', this._addArticle);
@@ -13,17 +17,21 @@ class Main {
   }
 
   _addArticle = () => {
+    let validity = false;
     if(this._form.checkValidity() === true) {
       let dataArticle = this._getData();
       this._inventaryManager.addArticle(dataArticle);
+      validity = true;
     }
-   this._form.classList.add('was-validated');
+    this._form.classList.add('was-validated');
+    return validity;
   }
 
   _searchArticle = (e) => {
     e.preventDefault();
     let strSearched = document.getElementById('searchInput').value;
     this._inventaryManager.searchArticles(strSearched);
+    return strSearched;
   }
 
   _getArticles = () => {
@@ -32,6 +40,7 @@ class Main {
 
   _getReport = () => {
     this._inventaryManager.report(document.getElementById('report'));
+    return document.getElementById('report')
   }
 
   _getData  = () => {
@@ -54,4 +63,5 @@ class Main {
 
 }
 
-var main = new Main();
+export default Main;
+//var main = new Main();

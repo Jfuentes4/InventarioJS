@@ -12,14 +12,14 @@ class InventaryManager {
     if (this._ifDontExist(dataArticle.code)) {
       if(this._setArticleToArrayAndLS(dataArticle)){
         this.refreshTable();
-        $('#addArticleForm').modal('hide');
+        //$('#addArticleForm').modal('hide');
         document.getElementById('newArticleForm').reset();
-        this._graphicManager.successMenssage ('Añadido!', 'Tu Articulo fue añadido con exito.');
+        //this._graphicManager.successMenssage ('Añadido!', 'Tu Articulo fue añadido con exito.');
       }
     } else {
       alert('este Articulo ya esta actualmente registrado');
     }
-
+    return dataArticle;
   }
 
   _setArticleToArrayAndLS = (dataArticle) => {
@@ -33,7 +33,7 @@ class InventaryManager {
         this._articlesToShow.splice(dataArticle.index, 0, article);
         success = true;
       }else {
-        this._graphicManager.errorMenssage('Error', 'El indice ingresado no es valido (min 0, max ' + this._articles.length + ')');
+        //this._graphicManager.errorMenssage('Error', 'El indice ingresado no es valido (min 0, max ' + this._articles.length + ')');
       }
     } else {
       this._articles.push(article);
@@ -47,11 +47,13 @@ class InventaryManager {
   _deleteArticle = (code) => {
     let index = this.findArticle(code);
     this._articles.splice(index, 1);
+    return code;
   }
 
   refreshTable = () => {
     this.articles()
     this._graphicManager.showOnTable(this._articlesToShow, this._deleteArticle);
+    return this._articles;
   }
 
   searchArticles = (str) => {
